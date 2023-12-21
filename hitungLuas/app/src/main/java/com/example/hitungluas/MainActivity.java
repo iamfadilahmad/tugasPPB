@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         EditText vPanjang = findViewById(R.id.editPanjang);
         EditText vLebar = findViewById(R.id.editLebar);
         Button hitung = findViewById(R.id.btnHitung);
+        Button clear = findViewById(R.id.btnClear);
 
 //        public void hitungluas(){
 //            String panjang = vPanjang.getText().toString();
@@ -30,12 +31,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String panjang = vPanjang.getText().toString();
-                String lebar = vPanjang.getText().toString();
+                String lebar = vLebar.getText().toString();
 
                 double p = Double.parseDouble(panjang);
                 double l = Double.parseDouble(lebar);
                 double luas = p*l;
                 Toast.makeText(MainActivity.this, "Luas adalah : "+luas, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vPanjang.getText().clear();
+                vLebar.getText().clear();
             }
         });
 

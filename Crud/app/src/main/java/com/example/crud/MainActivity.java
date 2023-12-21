@@ -56,8 +56,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final EditText dialogEditText = dialogView.findViewById(R.id.nrp_dialog_editText);
 
         builder.setPositiveButton("OK", (dialog, which)->{
-            String getnrp = dialogEditText.getText().toString();
-            nrp = getnrp;
+            nrp = dialogEditText.getText().toString();
+            dialogEditText.getText().clear();
         });
 
         builder.setNegativeButton("Cancel", (dialog,which)-> dialog.dismiss());
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void addData(){
-        Boolean add = this.DB.insertData(name.getText().toString(), this.nrp);
+        Boolean add = this.DB.insertData(name.getText().toString(), nrp);
         try{
             this.checkResult(add);
         }catch (Exception e){
